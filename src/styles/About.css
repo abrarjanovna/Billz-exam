@@ -1,0 +1,15 @@
+.about {
+  padding: 1rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info h3 {
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  word-spacing: 3px;
+}
