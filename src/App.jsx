@@ -1,19 +1,15 @@
-import Header from "./components/Header";
-import About from "./components/About";
-import ThemeContainer from "./components/ThemeContainer";
 import { ThemeProvider } from "./context/ThemeContext";
-import Main from "./components/Main";
+import ThemeContainer from "./components/ThemeContainer";
+import Home from "./pages/Home";
+import Settings from "./pages/Settings";
 
 const App = () => {
   return (
     <ThemeProvider>
-      <div className="app-container">
-        <ThemeContainer>
-          <Header />
-          <Main/>
-          <About />
-        </ThemeContainer>
-      </div>
+      <ThemeContainer>
+        <Home />
+        <Settings />
+      </ThemeContainer>
     </ThemeProvider>
   );
 };

@@ -1,6 +1,6 @@
 .header-content .theme-switch {
   display: flex;
-  border: 1px solid #000;
+  border: 1px solid rgb(31, 120, 255);
   width: 60px;
   height: 30px;
   position: relative;
@@ -17,14 +17,33 @@
 .ball {
   width: 50%;
   height: 100%;
-  position: absolute;
-  background-color: #000;
+  background-color: rgb(31, 120, 255);
   border-radius: 50%;
   transition: all 0.3s;
 }
 
-.switch{
-  border: 1px solid #fff;
+.switch {
+  border: 2px solid #eaeaea;
+  border-radius: 18px;
+  width: 61px;
+  height: 31.5px;
+}
+
+#theme-switch-input2:checked + .ball2 {
+  background-color: rgb(31, 120, 255);
+  transform: translateX(100%);
+}
+
+.ball2 {
+  width: 50%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.switch2 {
+  border: 2px solid #eaeaea;
   border-radius: 18px;
   width: 61px;
   height: 31.5px;

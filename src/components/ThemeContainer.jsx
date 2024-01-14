@@ -4,11 +4,7 @@ import clsx from "clsx";
 
 const ThemeContainer = ({ children }) => {
   const { theme } = useContext(ThemeContext);
-  return (
-    <div className={clsx(theme ? "dark" : "light")} style={{ minHeight: "100vh" }}>
-      {children}
-    </div>
-  );
+  return <div className={clsx(theme ? "dark" : "light")}>{children}</div>;
 };
 
 export default ThemeContainer;
