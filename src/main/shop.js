@@ -1,21 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  shops: [],
+  shop: [],
 };
 
-export const NewShopSlice = createSlice({
+export const NewStore = createSlice({
   name: "shops",
   initialState,
   reducers: {
-    addShop: (state, action) => {
-      state.shops.push(action.payload);
+    add: (state, action) => {
+      state.shop.push(action.payload);
     },
-    deleteShop: (state, action) => {
-      return state.shops.filter((shop) => shop.id !== action.payload);
+    deleted: (state, action) => {
+      return state.shop.filter((shops) => shops.id !== action.payload);
     },
   },
 });
 
-export const { addShop, deleteShop } = NewShopSlice.actions;
-export default NewShopSlice.reducer;
+export const { add, deleted } = NewStore.actions;
+export default NewStore.reducer;

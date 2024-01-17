@@ -36,7 +36,7 @@ const Requisites = () => {
             type="text"
             className={clsx(
               theme ? "d" : "l",
-              "inp ml-8 mt-3 h-14 w-80 rounded-2xl border-2 focus:outline-none",
+              "ml-8 mt-3 h-14 w-80 rounded-2xl border-2 p-4 focus:outline-none",
             )}
             placeholder="Введите название"
           />
@@ -48,7 +48,7 @@ const Requisites = () => {
           <input
             className={clsx(
               theme ? "d" : "l",
-              "inp ml-72 mt-5 h-12 rounded-2xl bg-slate-100 focus:outline-none",
+              "ml-72 mt-5 h-12 rounded-2xl bg-slate-100 p-4 focus:outline-none",
             )}
             style={{ width: "672px" }}
             type="text"
@@ -58,7 +58,7 @@ const Requisites = () => {
         <select
           className={clsx(
             theme ? "d" : "l",
-            "inp ml-72 mt-6 h-14 w-80 rounded-2xl border-2 focus:outline-none",
+            "ml-72 mt-6 h-14 w-80 rounded-2xl border-2 p-4 focus:outline-none",
           )}
         >
           <option value="0">Узбекистан</option>
@@ -72,7 +72,7 @@ const Requisites = () => {
           type="text"
           className={clsx(
             theme ? "d" : "l",
-            "inp ml-8 mt-3 h-14 w-80 rounded-2xl border-2 focus:outline-none",
+            "ml-8 mt-3 h-14 w-80 rounded-2xl border-2 p-4 focus:outline-none",
           )}
           placeholder="Введите почтовый индекс"
         />
@@ -82,7 +82,7 @@ const Requisites = () => {
         <input
           className={clsx(
             theme ? "d" : "l",
-            "inp ml-72 mt-5 h-12 rounded-2xl bg-slate-100 focus:outline-none",
+            "ml-72 mt-5 h-12 rounded-2xl bg-slate-100 p-4 focus:outline-none",
           )}
           style={{ width: "672px" }}
           type="text"
@@ -91,21 +91,22 @@ const Requisites = () => {
         <input
           className={clsx(
             theme ? "d" : "l",
-            "inp ml-72 h-12 rounded-2xl bg-slate-100 focus:outline-none",
+            "ml-72 h-12 rounded-2xl bg-slate-100 p-4 focus:outline-none",
           )}
           style={{ width: "672px" }}
           type="text"
           placeholder="Название банка и филиал"
         />
-        <input
+        <button
           className={clsx(
             theme ? "d" : "l",
             "i ml-72 mt-5 h-12 rounded-2xl bg-slate-100 focus:outline-none",
           )}
           style={{ width: "672px" }}
           type="text"
-          placeholder="+ Добавить еще один банковский счет"
-        />
+        >
+          + Добавить еще один банковский счет
+        </button>
       </div>
       <div className="box"></div>
     </div>

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import ThemeContext from "../context/ThemeContext";
 import clsx from "clsx";
-import Kassa from "./Kassa";
+import Kassa from "./Kassapage";
 
 const Main = () => {
   const { theme } = useContext(ThemeContext);
@@ -10,7 +10,7 @@ const Main = () => {
     <div className="mt-9">
       <h1 className="text-2xl font-bold tracking-wide">Основные</h1>
       <div className="inline-block font-semibold">
-        <h2 className="-mt-7 ml-72 ">Наименование</h2>
+        <h2 className="-mt-7 ml-72">Наименование</h2>
         <button
           className={clsx(
             theme ? "d" : "l",

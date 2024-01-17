@@ -1,13 +1,14 @@
 import { useContext } from "react";
 import ThemeContext from "../context/ThemeContext";
 import clsx from "clsx";
-import Check from "./Check";
+import CheckPage from "./CheckPage";
+// import Check from "./Check";
 
-const Kassa = () => {
+const KassaPage = () => {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <div>
+    <div className="-ml-72">
       <div className="mt-10 flex">
         <h1 className="text-2xl font-bold tracking-wide">Кассы</h1>
         <div className="ml-56">
@@ -36,10 +37,10 @@ const Kassa = () => {
           </label>
         </button>
       </div>
-      <hr className="-ml-12 mt-12" />
-      <Check />
+      {/* <Check /> */}
+      <CheckPage/>
     </div>
   );
 };
 
-export default Kassa;
+export default KassaPage;

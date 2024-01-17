@@ -1,60 +1,33 @@
-// import { IoIosArrowBack, IoMdSearch } from "react-icons/io";
-import Sidebar from "../components/Sidebar";
-// import clsx from "clsx";
-// import { useContext } from "react";
-// import ThemeContext from "../context/ThemeContext";
-// import { Link } from "react-router-dom";
-
-// const NewStore = () => {
-//   const { theme } = useContext(ThemeContext);
-
-//   return (
-//     <div className="flex">
-//       <Sidebar />
-//       <div>
-//         <nav>
-//           <h2 className="mb-8 ml-8 mt-12 flex items-center text-4xl font-bold">
-//             <Link to={"/store"}>
-//               <IoIosArrowBack className="mr-2 cursor-point p-1 text-blue-500" />
-//             </Link>
-//             <p>
-//               <span>Новый магазин</span>
-//             </p>
-//           </h2>
-
-//         </nav>
-//         {/* <Main /> */}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default NewStore;
-import Cleave from "cleave.js/react";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { uid } from "uid";
 import { FaChevronLeft } from "react-icons/fa6";
-import { addShop } from "../main/shop";
+import { add } from "../main/shop";
+import { useDispatch } from "react-redux";
+import Sidebar from "../components/Sidebar";
+import Cleave from "cleave.js/react";
+import clsx from "clsx";
+import ThemeContext from "../context/ThemeContext";
+import KassaPage from "../components/Kassapage";
 
-export default function StoreMain() {
-  // const { mode } = useSelector((state) => state.darkMode);
+export default function Store() {
+  const { theme } = useContext(ThemeContext);
   const dispatch = useDispatch();
-  const [shopTitle, setShopTitle] = useState("");
-  const [quadrature, setquadrature] = useState("");
+  const [name, setName] = useState("");
+  const [square, setSquare] = useState("");
   const navigate = useNavigate();
-  const addShopsHandler = () => {
-    if (shopTitle && quadrature !== "") {
+  const addShop = () => {
+    if (name && square !== "") {
       const shop = {
         id: uid(),
-        title: shopTitle,
-        quadrature,
+        title: name,
+        square,
       };
       navigate("/store");
-      dispatch(addShop(shop));
-      setShopTitle("");
-      setquadrature("");
+      alert("👍");
+      dispatch(add(shop));
+      setName("");
+      setSquare("");
     } else {
       return;
     }
@@ -62,315 +35,273 @@ export default function StoreMain() {
   return (
     <div className="flex">
       <Sidebar />
-      <nav>
-        <h2 className="mb-8 ml-8 mt-12 flex items-center text-4xl font-bold">
+      <div className="flex">
+        <h2 className="mb-8 ml-8 mt-12 flex text-4xl font-bold">
           <Link to="/store">
-            <FaChevronLeft className=" mr-4 p-2 text-blue-500" />
+            <FaChevronLeft className="mr-4 p-2 text-blue-500" />
           </Link>
-          <p>
-            <span>Новый магазин</span>
-          </p>
+          Mагазин
         </h2>
-        <div className="mr-8">
-          <button
-            onClick={() => addShopsHandler()}
-            className={
-              "mr-4 rounded-2xl bg-gray-300 px-[16px] py-[15px] font-medium  text-black"
-            }
-          >
-            Создать
-          </button>
-        </div>
-      </nav>
-      <hr className="mb-8 mt-[130px]" />
-      <section>
-        <div className="w-1/5">
-          <h3 className="text-2xl font-bold">Основные</h3>
-        </div>
-        <div className="w-3/4">
+        <button className="ml-[600px] mt-[40px] h-[60px]">Сохранить</button>
+        <button
+          onClick={() => addShop()}
+          className={
+            setName && square
+              ? "rounded-2xl bg-blue-600 px-[16px] py-[15px] text-white"
+              : "rounded-2xl bg-gray-300 px-[16px] py-[15px]"
+          }
+          style={{ height: "60px", marginTop: "40px", marginLeft: "22px" }}
+        >
+          Сохранить
+        </button>
+      </div>
+      <div className="mt-36 flex" style={{ marginLeft: "-1000px" }}>
+        <h1 className="text-2xl font-bold tracking-wide">Основные</h1>
+        <div className="ml-40">
           <div className="flex">
             <div>
-              <label htmlFor="nameStore" className="font-semibold">
-                Наименование
-              </label>
-              <br />
+              <h1 className="font-semibold">Наименование</h1>
               <input
-                value={shopTitle}
-                onChange={(e) => setShopTitle(e.target.value)}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 type="text"
-                // className={
-                //   mode
-                //     ? "bg-gray-800 mr-[32px] rounded-2xl pl-[16px] w-[350px] h-[56px] mt-[16px] border-0 outline-none"
-                //     : "bg-gray-100 mr-[32px] rounded-2xl pl-[16px] w-[350px] h-[56px] mt-[16px] border-0 outline-none"
-                // }
+                placeholder="Введите имя"
                 id="nameStore"
+                className={clsx(
+                  theme ? "d" : "l",
+                  "-ml-2 mt-3 h-14 w-80 rounded-2xl border-2",
+                  "p-3 focus:outline-none",
+                )}
               />
             </div>
-            <div className="relative">
-              <label htmlFor="quadrature" className="font-semibold">
-                Квадратура
-              </label>
-              <br />
+            <div className="relative ml-10">
+              <h1 className="font-semibold">Квадратура</h1>
               <input
-                value={quadrature}
-                onChange={(e) => setquadrature(e.target.value)}
+                value={square}
+                onChange={(e) => setSquare(e.target.value)}
                 type="number"
-                // className={
-                //   mode
-                //     ? "bg-gray-800 mr-[32px] rounded-2xl pl-[16px] w-[350px] h-[56px] mt-[16px] border-0 outline-none"
-                //     : "bg-gray-100 mr-[32px] rounded-2xl pl-[16px] w-[350px] h-[56px] mt-[16px] border-0 outline-none"
-                // }
-                id="quadrature"
+                placeholder="Введите квадратуру"
+                id="square"
+                className={clsx(
+                  theme ? "d" : "l",
+                  "-ml-2 mt-3 h-14 w-80 rounded-2xl border-2",
+                  "p-3 focus:outline-none",
+                )}
               />
-              <p className="absolute right-[15%] top-[60%] font-semibold text-gray-400">
+              <p className="absolute right-[10%] top-[56%] font-semibold text-gray-400">
                 м<sup>2</sup>
               </p>
             </div>
           </div>
-          <div className="mb-[32px]">
-            <p className="pb-[16px] pt-[32px] font-semibold">Режим работы</p>
-            <div
-            // className={
-            //   mode
-            //     ? "flex mr-[92px] rounded-2xl h-[65px] items-center bg-gray-800 justify-between pr-[16px]"
-            //     : "flex mr-[92px] rounded-2xl h-[65px] items-center bg-gray-100 justify-between pr-[16px]"
-            // }
-            >
-              <p className="border-end flex h-[100%] w-[135px] items-center px-[16px] font-semibold">
+          <div className="font-semibold">
+            <h1 className="mt-11">Режим работы</h1>
+            <div className={clsx(theme ? "d" : "l", "div mt-4")}>
+              <button type="button" className="button">
                 Понедельник
-              </p>
-              <div className="flex w-[30%] justify-around">
-                <p className="font-semibold text-gray-300">Открытие:</p>
-                <Cleave
-                  className="w-[50px] bg-inherit p-0 text-gray-500 outline-none"
-                  options={{ time: true, timePattern: ["h", "m"] }}
-                  placeholder="XX:XX"
-                />
-              </div>
-              <div className="flex w-[30%] justify-around">
-                <p className="font-semibold text-gray-300">Закрытие:</p>
-                <Cleave
-                  className="w-[50px] border-0 bg-inherit text-gray-500 outline-none"
-                  options={{ time: true, timePattern: ["h", "m"] }}
-                  placeholder="XX:XX"
-                />
-              </div>
-              <div className="form-check form-switch flex w-[15%] justify-end text-2xl">
-                <input
-                  className="form-check-input p-3"
-                  type="checkbox"
-                  id="flexSwitchCheckDefault"
-                ></input>
-              </div>
+              </button>
+              <div className="vl"></div>
+              <p className="ml-8 mt-4 font-semibold text-gray-300">Открытие:</p>
+              <Cleave
+                className="ml-2 w-[50px] bg-inherit p-0 text-gray-500 outline-none"
+                options={{ time: true, timePattern: ["h", "m"] }}
+                placeholder="XX:XX"
+              />
+              <p className="ml-5 mt-4 font-semibold text-gray-300">Закрытие:</p>
+              <Cleave
+                className="ml-2 w-[50px] border-0 bg-inherit text-gray-500 outline-none"
+                options={{ time: true, timePattern: ["h", "m"] }}
+                placeholder="XX:XX"
+              />
+              <button className="switch2 ml-28 mt-3 border-neutral-300 bg-neutral-300">
+                <label>
+                  <input
+                    type="checkbox"
+                    name="theme-switch"
+                    id="theme-switch-input2"
+                    hidden
+                  />
+                  <div className="ball2"></div>
+                </label>
+              </button>
             </div>
-            <div
-            // className={
-            //   mode
-            //     ? "flex mr-[92px] my-[8px] rounded-2xl h-[65px] items-center bg-gray-800 justify-between pr-[16px]"
-            //     : "flex mr-[92px] my-[8px] rounded-2xl h-[65px] items-center bg-gray-100 justify-between pr-[16px]"
-            // }
-            >
-              <p className="border-end flex h-[100%] w-[135px] items-center px-[16px] font-semibold">
+            <div className={clsx(theme ? "d" : "l", "div mt-4")}>
+              <button type="button" className="button">
                 Вторник
-              </p>
-              <div className="flex w-[30%] justify-around">
-                <p className="font-semibold text-gray-300">Открытие:</p>
-                <Cleave
-                  className="w-[50px] bg-inherit p-0 text-gray-500 outline-none"
-                  options={{ time: true, timePattern: ["d", "m"] }}
-                  placeholder="XX:XX"
-                />
-              </div>
-              <div className="flex w-[30%] justify-around">
-                <p className="font-semibold text-gray-300">Закрытие:</p>
-                <Cleave
-                  className="w-[50px] border-0 bg-inherit text-gray-500 outline-none"
-                  options={{ time: true, timePattern: ["h", "m"] }}
-                  placeholder="XX:XX"
-                />
-              </div>
-              <div className="form-check form-switch flex w-[15%] justify-end text-2xl">
-                <input
-                  className="form-check-input p-3"
-                  type="checkbox"
-                  id="flexSwitchCheckDefault"
-                ></input>
-              </div>
+              </button>
+              <div className="vl"></div>
+              <p className="ml-8 mt-4 font-semibold text-gray-300">Открытие:</p>
+              <Cleave
+                className="ml-2 w-[50px] bg-inherit p-0 text-gray-500 outline-none"
+                options={{ time: true, timePattern: ["h", "m"] }}
+                placeholder="XX:XX"
+              />
+              <p className="ml-5 mt-4 font-semibold text-gray-300">Закрытие:</p>
+              <Cleave
+                className="ml-2 w-[50px] border-0 bg-inherit text-gray-500 outline-none"
+                options={{ time: true, timePattern: ["h", "m"] }}
+                placeholder="XX:XX"
+              />
+              <button className="switch2 ml-28 mt-3 border-neutral-300 bg-neutral-300">
+                <label>
+                  <input
+                    type="checkbox"
+                    name="theme-switch"
+                    id="theme-switch-input2"
+                    hidden
+                  />
+                  <div className="ball2"></div>
+                </label>
+              </button>
             </div>
-            <div
-            // className={
-            //   mode
-            //     ? "flex mr-[92px] my-[8px] rounded-2xl h-[65px] items-center bg-gray-800 justify-between pr-[16px]"
-            //     : "flex mr-[92px] my-[8px] rounded-2xl h-[65px] items-center bg-gray-100 justify-between pr-[16px]"
-            // }
-            >
-              <p className="border-end flex h-[100%] w-[135px] items-center px-[16px] font-semibold">
+            <div className={clsx(theme ? "d" : "l", "div mt-4")}>
+              <button type="button" className="button">
                 Среда
-              </p>
-              <div className="flex w-[30%] justify-around">
-                <p className="font-semibold text-gray-300">Открытие:</p>
-                <Cleave
-                  className="w-[50px] bg-inherit p-0 text-gray-500 outline-none"
-                  options={{ time: true, timePattern: ["h", "m"] }}
-                  placeholder="XX:XX"
-                />
-              </div>
-              <div className="flex w-[30%] justify-around">
-                <p className="font-semibold text-gray-300">Закрытие:</p>
-                <Cleave
-                  className="w-[50px] border-0 bg-inherit text-gray-500 outline-none"
-                  options={{ time: true, timePattern: ["h", "m"] }}
-                  placeholder="XX:XX"
-                />
-              </div>
-              <div className="form-check form-switch flex w-[15%] justify-end text-2xl">
-                <input
-                  className="form-check-input p-3"
-                  type="checkbox"
-                  id="flexSwitchCheckDefault"
-                ></input>
-              </div>
+              </button>
+              <div className="vl"></div>
+              <p className="ml-8 mt-4 font-semibold text-gray-300">Открытие:</p>
+              <Cleave
+                className="ml-2 w-[50px] bg-inherit p-0 text-gray-500 outline-none"
+                options={{ time: true, timePattern: ["h", "m"] }}
+                placeholder="XX:XX"
+              />
+              <p className="ml-5 mt-4 font-semibold text-gray-300">Закрытие:</p>
+              <Cleave
+                className="ml-2 w-[50px] border-0 bg-inherit text-gray-500 outline-none"
+                options={{ time: true, timePattern: ["h", "m"] }}
+                placeholder="XX:XX"
+              />
+              <button className="switch2 ml-28 mt-3 border-neutral-300 bg-neutral-300">
+                <label>
+                  <input
+                    type="checkbox"
+                    name="theme-switch"
+                    id="theme-switch-input2"
+                    hidden
+                  />
+                  <div className="ball2"></div>
+                </label>
+              </button>
             </div>
-            <div
-            // className={
-            //   mode
-            //     ? "flex mr-[92px] my-[8px] rounded-2xl h-[65px] items-center bg-gray-800 justify-between pr-[16px]"
-            //     : "flex mr-[92px] my-[8px] rounded-2xl h-[65px] items-center bg-gray-100 justify-between pr-[16px]"
-            // }
-            >
-              <p className="border-end flex h-[100%] w-[135px] items-center px-[16px] font-semibold">
+            <div className={clsx(theme ? "d" : "l", "div mt-4")}>
+              <button type="button" className="button">
                 Четверг
-              </p>
-              <div className="flex w-[30%] justify-around">
-                <p className="font-semibold text-gray-300">Открытие:</p>
-                <Cleave
-                  className="w-[50px] bg-inherit p-0 text-gray-500 outline-none"
-                  options={{ time: true, timePattern: ["h", "m"] }}
-                  placeholder="XX:XX"
-                />
-              </div>
-              <div className="flex w-[30%] justify-around">
-                <p className="font-semibold text-gray-300">Закрытие:</p>
-                <Cleave
-                  className="w-[50px] border-0 bg-inherit text-gray-500 outline-none"
-                  options={{ time: true, timePattern: ["h", "m"] }}
-                  placeholder="XX:XX"
-                />
-              </div>
-              <div className="form-check form-switch flex w-[15%] justify-end text-2xl">
-                <input
-                  className="form-check-input p-3"
-                  type="checkbox"
-                  id="flexSwitchCheckDefault"
-                ></input>
-              </div>
+              </button>
+              <div className="vl"></div>
+              <p className="ml-8 mt-4 font-semibold text-gray-300">Открытие:</p>
+              <Cleave
+                className="ml-2 w-[50px] bg-inherit p-0 text-gray-500 outline-none"
+                options={{ time: true, timePattern: ["h", "m"] }}
+                placeholder="XX:XX"
+              />
+              <p className="ml-5 mt-4 font-semibold text-gray-300">Закрытие:</p>
+              <Cleave
+                className="ml-2 w-[50px] border-0 bg-inherit text-gray-500 outline-none"
+                options={{ time: true, timePattern: ["h", "m"] }}
+                placeholder="XX:XX"
+              />
+              <button className="switch2 ml-28 mt-3 border-neutral-300 bg-neutral-300">
+                <label>
+                  <input
+                    type="checkbox"
+                    name="theme-switch"
+                    id="theme-switch-input2"
+                    hidden
+                  />
+                  <div className="ball2"></div>
+                </label>
+              </button>
             </div>
-            <div
-            // className={
-            //   mode
-            //     ? "flex mr-[92px] my-[8px] rounded-2xl h-[65px] items-center bg-gray-800 justify-between pr-[16px]"
-            //     : "flex mr-[92px] my-[8px] rounded-2xl h-[65px] items-center bg-gray-100 justify-between pr-[16px]"
-            // }
-            >
-              <p className="border-end flex h-[100%] w-[135px] items-center px-[16px] font-semibold">
+            <div className={clsx(theme ? "d" : "l", "div mt-4")}>
+              <button type="button" className="button">
                 Пятница
-              </p>
-              <div className="flex w-[30%] justify-around">
-                <p className="font-semibold text-gray-300">Открытие:</p>
-                <Cleave
-                  className="w-[50px] bg-inherit p-0 text-gray-500 outline-none"
-                  options={{ time: true, timePattern: ["h", "m"] }}
-                  placeholder="XX:XX"
-                />
-              </div>
-              <div className="flex w-[30%] justify-around">
-                <p className="font-semibold text-gray-300">Закрытие:</p>
-                <Cleave
-                  className="w-[50px] border-0 bg-inherit text-gray-500 outline-none"
-                  options={{ time: true, timePattern: ["h", "m"] }}
-                  placeholder="XX:XX"
-                />
-              </div>
-              <div className="form-check form-switch flex w-[15%] justify-end text-2xl">
-                <input
-                  className="form-check-input p-3"
-                  type="checkbox"
-                  id="flexSwitchCheckDefault"
-                ></input>
-              </div>
+              </button>
+              <div className="vl"></div>
+              <p className="ml-8 mt-4 font-semibold text-gray-300">Открытие:</p>
+              <Cleave
+                className="ml-2 w-[50px] bg-inherit p-0 text-gray-500 outline-none"
+                options={{ time: true, timePattern: ["h", "m"] }}
+                placeholder="XX:XX"
+              />
+              <p className="ml-5 mt-4 font-semibold text-gray-300">Закрытие:</p>
+              <Cleave
+                className="ml-2 w-[50px] border-0 bg-inherit text-gray-500 outline-none"
+                options={{ time: true, timePattern: ["h", "m"] }}
+                placeholder="XX:XX"
+              />
+              <button className="switch2 ml-28 mt-3 border-neutral-300 bg-neutral-300">
+                <label>
+                  <input
+                    type="checkbox"
+                    name="theme-switch"
+                    id="theme-switch-input2"
+                    hidden
+                  />
+                  <div className="ball2"></div>
+                </label>
+              </button>
             </div>
-            <div
-            // className={
-            //   mode
-            //     ? "flex mr-[92px] my-[8px] rounded-2xl h-[65px] items-center bg-gray-800 justify-between pr-[16px]"
-            //     : "flex mr-[92px] my-[8px] rounded-2xl h-[65px] items-center bg-gray-100 justify-between pr-[16px]"
-            // }
-            >
-              <p className="border-end flex h-[100%] w-[135px] items-center px-[16px] font-semibold">
+            <div className={clsx(theme ? "d" : "l", "div mt-4")}>
+              <button type="button" className="button">
                 Суббота
-              </p>
-              <div className="flex w-[30%] justify-around">
-                <p className="font-semibold text-gray-300">Открытие:</p>
-                <Cleave
-                  className="w-[50px] bg-inherit p-0 text-gray-500 outline-none"
-                  options={{ time: true, timePattern: ["h", "m"] }}
-                  placeholder="XX:XX"
-                />
-              </div>
-              <div className="flex w-[30%] justify-around">
-                <p className="font-semibold text-gray-300">Закрытие:</p>
-                <Cleave
-                  className="w-[50px] border-0 bg-inherit text-gray-500 outline-none"
-                  options={{ time: true, timePattern: ["h", "m"] }}
-                  placeholder="XX:XX"
-                />
-              </div>
-              <div className="form-check form-switch flex w-[15%] justify-end text-2xl">
-                <input
-                  className="form-check-input p-3"
-                  type="checkbox"
-                  id="flexSwitchCheckDefault"
-                ></input>
-              </div>
+              </button>
+              <div className="vl"></div>
+              <p className="ml-8 mt-4 font-semibold text-gray-300">Открытие:</p>
+              <Cleave
+                className="ml-2 w-[50px] bg-inherit p-0 text-gray-500 outline-none"
+                options={{ time: true, timePattern: ["h", "m"] }}
+                placeholder="XX:XX"
+              />
+              <p className="ml-5 mt-4 font-semibold text-gray-300">Закрытие:</p>
+              <Cleave
+                className="ml-2 w-[50px] border-0 bg-inherit text-gray-500 outline-none"
+                options={{ time: true, timePattern: ["h", "m"] }}
+                placeholder="XX:XX"
+              />
+              <button className="switch2 ml-28 mt-3 border-neutral-300 bg-neutral-300">
+                <label>
+                  <input
+                    type="checkbox"
+                    name="theme-switch"
+                    id="theme-switch-input2"
+                    hidden
+                  />
+                  <div className="ball2"></div>
+                </label>
+              </button>
             </div>
-            <div
-            // className={
-            //   mode
-            //     ? "flex mr-[92px] my-[8px] rounded-2xl h-[65px] items-center bg-gray-800 justify-between pr-[16px]"
-            //     : "flex mr-[92px] my-[8px] rounded-2xl h-[65px] items-center bg-gray-100 justify-between pr-[16px]"
-            // }
-            >
-              <p className="border-end flex h-[100%] w-[135px] items-center px-[16px] font-semibold">
+            <div className={clsx(theme ? "d" : "l", "div mt-4")}>
+              <button type="button" className="button">
                 Воскресенье
-              </p>
-              <div className="flex w-[30%] justify-around">
-                <p className="font-semibold text-gray-300">Открытие:</p>
-                <Cleave
-                  className="w-[50px] bg-inherit p-0 text-gray-500 outline-none"
-                  options={{ time: true, timePattern: ["h", "m"] }}
-                  placeholder="XX:XX"
-                />
-              </div>
-              <div className="flex w-[30%] justify-around">
-                <p className="font-semibold text-gray-300">Закрытие:</p>
-                <Cleave
-                  className="w-[50px] border-0 bg-inherit text-gray-500 outline-none"
-                  options={{ time: true, timePattern: ["h", "m"] }}
-                  placeholder="XX:XX"
-                />
-              </div>
-              <div className="form-check form-switch flex w-[15%] justify-end text-2xl">
-                <input
-                  className="form-check-input p-3"
-                  type="checkbox"
-                  id="flexSwitchCheckDefault"
-                ></input>
-              </div>
+              </button>
+              <div className="vl"></div>
+              <p className="ml-8 mt-4 font-semibold text-gray-300">Открытие:</p>
+              <Cleave
+                className="ml-2 w-[50px] bg-inherit p-0 text-gray-500 outline-none"
+                options={{ time: true, timePattern: ["h", "m"] }}
+                placeholder="XX:XX"
+              />
+              <p className="ml-5 mt-4 font-semibold text-gray-300">Закрытие:</p>
+              <Cleave
+                className="ml-2 w-[50px] border-0 bg-inherit text-gray-500 outline-none"
+                options={{ time: true, timePattern: ["h", "m"] }}
+                placeholder="XX:XX"
+              />
+              <button className="switch2 ml-28 mt-3 border-neutral-300 bg-neutral-300">
+                <label>
+                  <input
+                    type="checkbox"
+                    name="theme-switch"
+                    id="theme-switch-input2"
+                    hidden
+                  />
+                  <div className="ball2"></div>
+                </label>
+              </button>
             </div>
           </div>
+        <KassaPage/>
         </div>
-      </section>
-      <hr className="mb-[32px]" />
+      </div>
     </div>
   );
 }

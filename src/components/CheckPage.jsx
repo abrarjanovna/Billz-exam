@@ -1,7 +1,7 @@
 import check from "../images/check.svg";
-import Contacts from "../pages/Contacts";
+import ContactsPage from "./ContactsPage";
 
-const Check = () => {
+const CheckPage = () => {
   return (
     <div>
       <div className="mt-10 flex">
@@ -18,9 +18,9 @@ const Check = () => {
         </div>
       </div>
       <hr className="-ml-12 mt-12" />
-      <Contacts />
+      <ContactsPage/>
     </div>
   );
 };
 
-export default Check;
+export default CheckPage;

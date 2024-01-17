@@ -46,10 +46,9 @@ const Store = () => {
           />
           <Link
             to="/newStore"
-            className="ml-4 rounded-3xl bg-[#1f78ff] px-[16px] py-[19px] text-[#fff] "
+            className="ml-4 rounded-2xl bg-[#1f78ff] px-[16px] py-[19px] text-[#fff] "
           >
-            <span className="pr-2 text-base font-semibold ">+</span>
-            Новый магазин
+            + Новый магазин
           </Link>
           <IoMdSearch className="-mt-11 ml-3 text-2xl text-slate-400" />
         </form>
