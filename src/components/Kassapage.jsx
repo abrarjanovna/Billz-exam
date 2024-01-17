@@ -2,7 +2,6 @@ import { useContext } from "react";
 import ThemeContext from "../context/ThemeContext";
 import clsx from "clsx";
 import CheckPage from "./CheckPage";
-// import Check from "./Check";
 
 const KassaPage = () => {
   const { theme } = useContext(ThemeContext);
@@ -37,7 +36,6 @@ const KassaPage = () => {
           </label>
         </button>
       </div>
-      {/* <Check /> */}
       <CheckPage/>
     </div>
   );

@@ -1,12 +1,12 @@
 import { IoMdSearch } from "react-icons/io";
-import Sidebar from "../components/Sidebar";
 import { useDispatch, useSelector } from "react-redux";
 import { useContext, useState } from "react";
-import ThemeContext from "../context/ThemeContext";
-import clsx from "clsx";
-import { add } from "../main/Reducer";
-import delete_img from "../images/delete.svg";
 import { Link } from "react-router-dom";
+import { add } from "../main/Reducer";
+import ThemeContext from "../context/ThemeContext";
+import delete_img from "../images/delete.svg";
+import clsx from "clsx";
+import Sidebar from "../components/Sidebar";
 
 const Store = () => {
   const { theme } = useContext(ThemeContext);
@@ -22,9 +22,6 @@ const Store = () => {
     }
   };
 
-  const handleClick = (id) => {
-    dispatch(deleted(id));
-  };
   return (
     <div className="flex">
       <Sidebar />

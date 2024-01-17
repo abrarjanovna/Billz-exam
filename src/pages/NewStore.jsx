@@ -24,7 +24,6 @@ export default function Store() {
         square,
       };
       navigate("/store");
-      alert("👍");
       dispatch(add(shop));
       setName("");
       setSquare("");
@@ -42,7 +41,7 @@ export default function Store() {
           </Link>
           Mагазин
         </h2>
-        <button className="ml-[600px] mt-[40px] h-[60px]">Сохранить</button>
+        <button className="ml-[600px] mt-[40px] h-[60px]">Сбросить</button>
         <button
           onClick={() => addShop()}
           className={
