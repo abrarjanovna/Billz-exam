@@ -1,12 +1,12 @@
 import Sidebar from "../components/Sidebar";
 
-const Settings = () => {
+const Currency = () => {
   return (
     <div className="flex">
       <Sidebar />
-      Настройки
+      Валюты и оплата
     </div>
   );
 };
 
-export default Settings;
+export default Currency;

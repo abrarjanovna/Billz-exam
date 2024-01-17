@@ -1,5 +1,5 @@
 import check from "../images/check.svg";
-import Contacts from "./Contacts";
+import Contacts from "../pages/Contacts";
 
 const Check = () => {
   return (

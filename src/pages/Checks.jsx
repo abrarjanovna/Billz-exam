@@ -1,12 +1,12 @@
 import Sidebar from "../components/Sidebar";
 
-const Settings = () => {
+const Checks = () => {
   return (
     <div className="flex">
       <Sidebar />
-      Настройки
+     Чеки
     </div>
   );
 };
 
-export default Settings;
+export default Checks;

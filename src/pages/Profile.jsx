@@ -1,12 +1,12 @@
 import Sidebar from "../components/Sidebar";
 
-const Settings = () => {
+const Profile = () => {
   return (
     <div className="flex">
       <Sidebar />
-      Настройки
+      Профиль
     </div>
   );
 };
 
-export default Settings;
+export default Profile;

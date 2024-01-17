@@ -1,22 +1,11 @@
-import { useContext } from "react";
-import Switch from "../components/Switch";
-import ThemeContext from "../context/ThemeContext";
+import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
-import clsx from "clsx";
-import img from "../images/billz.svg";
-import "../styles/Header.css";
 
 const Home = () => {
-  const { theme } = useContext(ThemeContext);
   return (
-    <div className="header flex items-center">
-      <div className={clsx(theme ? "d" : "l", "main")}>
-        <img className="img" src={img} alt="logo" />
-        <Sidebar />
-      </div>
-      <div className="main-nav">
-        <Switch />
-      </div>
+    <div className="flex">
+      <Sidebar />
+      <Link to="/store" className="text-3xl ml-96 mt-80">TO THE STORE</Link>
     </div>
   );
 };

@@ -1,12 +1,12 @@
 import Sidebar from "../components/Sidebar";
 
-const Settings = () => {
+const Product = () => {
   return (
     <div className="flex">
       <Sidebar />
-      Настройки
+     Товары
     </div>
   );
 };
 
-export default Settings;
+export default Product;

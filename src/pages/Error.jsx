@@ -1,12 +1,12 @@
 import Sidebar from "../components/Sidebar";
 
-const Settings = () => {
+const Error = () => {
   return (
     <div className="flex">
       <Sidebar />
-      Настройки
+      Error page
     </div>
   );
 };
 
-export default Settings;
+export default Error;

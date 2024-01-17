@@ -1,20 +1,14 @@
 .header {
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
 }
 
 .main {
   background-color: #f1f3f5;
-  width: 256px;
-  height: 3006px;
+  width: 280px;
+  height: 100vh;
   margin: -1pc;
-  margin-top: -1pc;
 }
 
 .img {
   margin: 32px;
-}
-
-.main-nav {
-  margin-left: auto;
-  margin-bottom: 195%;
 }
