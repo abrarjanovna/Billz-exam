@@ -18,7 +18,7 @@ const CheckPage = () => {
         </div>
       </div>
       <hr className="-ml-12 mt-12" />
-      <ContactsPage/>
+      <ContactsPage />
     </div>
   );
 };

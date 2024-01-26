@@ -5,7 +5,9 @@ const Home = () => {
   return (
     <div className="flex">
       <Sidebar />
-      <Link to="/store" className="text-3xl ml-96 mt-80">TO THE STORE</Link>
+      <Link to="/store" className="ml-96 mt-80 text-3xl">
+        TO THE STORE
+      </Link>
     </div>
   );
 };

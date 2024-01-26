@@ -4,7 +4,7 @@ const Product = () => {
   return (
     <div className="flex">
       <Sidebar />
-     Товары
+      Товары
     </div>
   );
 };

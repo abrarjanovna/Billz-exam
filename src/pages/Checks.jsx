@@ -4,7 +4,7 @@ const Checks = () => {
   return (
     <div className="flex">
       <Sidebar />
-     Чеки
+      Чеки
     </div>
   );
 };

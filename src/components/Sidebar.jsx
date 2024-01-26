@@ -28,44 +28,44 @@ const Sidebar = () => {
               style={{ color: "1F78FF", marginTop: "2px" }}
             />
             <Link
-              to={"/settings"}
+              to="/settings"
               className="ml-3 text-lg font-bold tracking-wide"
             >
               Настройки
             </Link>
           </button>
           <button className="flex h-[1000%] w-[100%] pb-2 pl-8 pt-4 hover:bg-[#e0e7ee] hover:text-[#4993dd]">
-            <Link to={"/profile"} className="text-lg font-bold tracking-wide">
+            <Link to="/profile" className="text-lg font-bold tracking-wide">
               Профиль
             </Link>
           </button>
           <button className="flex h-[1000%] w-[100%] pb-2 pl-8 pt-4 hover:bg-[#e0e7ee] hover:text-[#4993dd]">
-            <Link to={"/company"} className="text-lg font-bold tracking-wide">
+            <Link to="/company" className="text-lg font-bold tracking-wide">
               Компания
             </Link>
           </button>
           <button className="flex h-[100%] w-[100%] pb-2 pl-8 pt-4 hover:bg-[#e0e7ee] hover:text-[#4993dd] focus:bg-[#e0e7ee] focus:text-[#4993dd]">
-            <Link to={"/store"} className="text-lg font-bold tracking-wide">
+            <Link to="/store" className="text-lg font-bold tracking-wide">
               Магазины
             </Link>
           </button>
           <button className="flex h-[1000%] w-[100%] pb-2 pl-8 pt-4 hover:bg-[#e0e7ee] hover:text-[#4993dd]">
-            <Link to={"/kassa"} className="text-lg font-bold tracking-wide">
+            <Link to="/kassa" className="text-lg font-bold tracking-wide">
               Кассы
             </Link>
           </button>
           <button className="flex h-[1000%] w-[100%] pb-2 pl-8 pt-4 hover:bg-[#e0e7ee] hover:text-[#4993dd]">
-            <Link to={"/checks"} className="text-lg font-bold tracking-wide">
+            <Link to="/checks" className="text-lg font-bold tracking-wide">
               Чеки
             </Link>
           </button>
           <button className="flex h-[1000%] w-[100%] pb-2 pl-8 pt-4 hover:bg-[#e0e7ee] hover:text-[#4993dd]">
-            <Link to={"/currency"} className="text-lg font-bold tracking-wide">
+            <Link to="/currency" className="text-lg font-bold tracking-wide">
               Валюты и оплата
             </Link>
           </button>
           <button className="flex h-[1000%] w-[100%] pb-2 pl-8 pt-4 hover:bg-[#e0e7ee] hover:text-[#4993dd]">
-            <Link to={"/product"} className="text-lg font-bold tracking-wide">
+            <Link to="/product" className="text-lg font-bold tracking-wide">
               Товары
             </Link>
           </button>

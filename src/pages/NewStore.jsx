@@ -298,7 +298,7 @@ export default function Store() {
               </button>
             </div>
           </div>
-        <KassaPage/>
+          <KassaPage />
         </div>
       </div>
     </div>

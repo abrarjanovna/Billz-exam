@@ -31,7 +31,8 @@ const ContactsPage = () => {
                 placeholder="+998  XX  XXX  XX  XX"
                 className={clsx(
                   theme ? "d" : "l",
-                  "btn h-14 w-80 rounded-2xl p-2 focus:outline-none","p-4"
+                  "btn h-14 w-80 rounded-2xl p-2 focus:outline-none",
+                  "p-4",
                 )}
                 type="tel"
                 value={inputVal}
@@ -50,7 +51,7 @@ const ContactsPage = () => {
                 placeholder="Название страницы"
                 className={clsx(
                   theme ? "d" : "l",
-                  "btn mt-4 h-14 w-80 rounded-2xl focus:outline-none p-4",
+                  "btn mt-4 h-14 w-80 rounded-2xl p-4 focus:outline-none",
                 )}
                 type="text"
               />
@@ -61,7 +62,8 @@ const ContactsPage = () => {
                 placeholder="@ Юзернейм"
                 className={clsx(
                   theme ? "d" : "l",
-                  "btn -ml-20 mt-4 focus:outline-none","p-4"
+                  "btn -ml-20 mt-4 focus:outline-none",
+                  "p-4",
                 )}
               />
             </div>
@@ -71,7 +73,8 @@ const ContactsPage = () => {
                 placeholder="@ Юзернейм"
                 className={clsx(
                   theme ? "d" : "l",
-                  "btn mt-4 h-14 w-80 rounded-2xl p-2 focus:outline-none",'p-4'
+                  "btn mt-4 h-14 w-80 rounded-2xl p-2 focus:outline-none",
+                  "p-4",
                 )}
                 type="text"
               />
@@ -80,7 +83,8 @@ const ContactsPage = () => {
                 placeholder="Ссылка на сайт"
                 className={clsx(
                   theme ? "d" : "l",
-                  "btn -ml-11 mt-4 focus:outline-none","p-4"
+                  "btn -ml-11 mt-4 focus:outline-none",
+                  "p-4",
                 )}
               />
             </div>
